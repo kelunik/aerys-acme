@@ -1,0 +1,24 @@
+{
+    "name": "kelunik/aerys-acme",
+    "description": "Encrypting TLS hosts automatically using ACME to issue certificates.",
+    "require": {
+        "amphp/aerys": "dev-master",
+        "kelunik/acme": "dev-master",
+        "amphp/dns": "^0.8",
+        "benconstable/lock": "^1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Niklas Keller",
+            "email": "me@kelunik.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Aerys\\Acme\\": "lib"
+        }
+    }
+}
