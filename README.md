@@ -1,6 +1,6 @@
 # aerys-acme
 
-ACME is a protocol to automate certificate issuance and renewal. Aerys provides a feature to encrypt hosts automatically using ACME.
+ACME is a protocol to automate certificate issuance and renewal. [Aerys](https://github.com/amphp/aerys) provides a feature to encrypt hosts automatically using ACME.
 
 ## installation
 
@@ -24,8 +24,10 @@ $https = (new Host)
     ->expose("*", 443)
     ->name("example.com");
 
-// currently we need a redirect, because the spec requires
+// Currently we need a redirect, because the spec requires
 // the initial HTTP challenge to use HTTP instead of HTTPS.
+// If you don't want to redirect all traffic, just redirect
+// everything starting with "/.well-known/acme-challenge/".
 $http = (new Host)
     ->expose("*", 80)
     ->name("example.com")
@@ -35,7 +37,7 @@ $http = (new Host)
 return (new AcmeHost($https, __DIR__ . "/ssl"))
     ->acceptAgreement(LETS_ENCRYPT_AGREEMENT)
     ->encrypt(LETS_ENCRYPT_STAGING, ["mailto:me@example.com"]);
-    
+
 // if your domain is already whitelisted for Let's Encrypt's closed beta,
 // use the right server to obtain a real certificate
 // return (new AcmeHost($https, __DIR__ . "/ssl"))
