@@ -3,7 +3,7 @@
     "description": "Encrypting TLS hosts automatically using ACME to issue certificates.",
     "require": {
         "amphp/aerys": "dev-master",
-        "kelunik/acme": "dev-master",
+        "kelunik/acme": "^0.1",
         "amphp/dns": "^0.8",
         "benconstable/lock": "^1"
     },
